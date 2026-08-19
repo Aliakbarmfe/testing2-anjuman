@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>انجمن ادیتوران | نسخه موبایل و دسکتاپ</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#ffffff',
+                            card: 'rgba(255, 255, 255, 0.85)',
+                            neon: '#000F9F',
+                            neonBlue: '#0000A0',
+                            glow: 'rgba(0, 15, 159, 0.15)',
+                        }
+                    },
+                    boxShadow: {
+                        'neon-glow': '0 0 20px rgba(0, 15, 159, 0.2)',
+                        'neon-glow-lg': '0 0 35px rgba(0, 15, 159, 0.3)',
+                        'neon-glow-btn': '0 0 18px rgba(0, 15, 159, 0.4)',
+                        'card-glow': '0 0 25px rgba(0, 0, 160, 0.12)',
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite alternate',
+                        'float': 'float 5s ease-in-out infinite',
+                        'progress-1': 'progressFill 2s ease-out forwards',
+                        'progress-2': 'progressFill 2.2s ease-out forwards',
+                        'progress-3': 'progressFill 1.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { boxShadow: '0 0 12px rgba(0, 15, 159, 0.15)' },
+                            '100%': { boxShadow: '0 0 28px rgba(0, 15, 159, 0.35)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        },
+                        progressFill: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '100%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #ffffff;
+            color: #000F9F;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Background Effects */
+        .ambient-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ambient-1 {
+            width: 320px;
+            height: 320px;
+            top: -50px;
+            right: -50px;
+            background: radial-gradient(circle, rgba(0, 15, 159, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .ambient-2 {
+            width: 300px;
+            height: 300px;
+            top: 350px;
+            left: -80px;
+            background: radial-gradient(circle, rgba(3, 11, 184, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 15, 159, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 15, 159, 0.2);
+        }
+
+        /* Text Gradients & Glows */
+        .text-glow {
+            text-shadow: 0 0 12px rgba(0, 15, 159, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #000F9F 0%, #030BB8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000F9F;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative selection:bg-[#000F9F] selection:text-white">
+
+    <!-- Ambient Background Light Orbs -->
+    <div class="ambient-bg ambient-1"></div>
+    <div class="ambient-bg ambient-2"></div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+
+        <!-- 1. Header (هدر) -->
+        <header class="py-4 sm:py-6 mb-6 sm:mb-8 flex items-center justify-between border-b border-[#000F9F]/15">
+            <!-- Right: Logo -->
+            <div class="flex items-center space-x-2.5 space-x-reverse cursor-pointer group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#000F9F] to-[#030BB8] flex items-center justify-center shadow-neon-glow shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg sm:text-xl font-black tracking-wide text-[#000F9F]">
+                        انجمن <span class="text-[#030BB8]">ادیتوران</span>
+                    </span>
+                    <span class="text-[9px] sm:text-[10px] text-[#0000A0] -mt-1 font-medium tracking-widest">EDITORS COMMUNITY</span>
+                </div>
+            </div>
+
+            <!-- Left: Mobile/Test Hamburger Menu -->
+            <button aria-label="منو" class="glass-panel p-2 sm:p-2.5 rounded-xl text-[#000F9F] border border-[#000F9F]/30 active:scale-95 transition-transform duration-200">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Hero Container -->
+        <main class="flex flex-col items-center text-center mt-2 sm:mt-6">
+
+            <!-- 2. Badge (نشانک فوقانی) -->
+            <div class="inline-flex items-center space-x-2 space-x-reverse px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full glass-panel border border-[#000F9F]/40 shadow-neon-glow animate-pulse-glow mb-6 sm:mb-8">
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#000F9F] animate-ping shrink-0"></span>
+                <span class="text-[11px] sm:text-sm font-medium text-[#0000A0]">
+                    • مرجع تخصصی ادیت، تدوین و جلوه‌های بصری
+                </span>
+            </div>
+
+            <!-- 3. Hero Heading (عنوان اصلی) -->
+            <h1 class="text-2xl sm:text-5xl lg:text-6xl font-black leading-snug sm:leading-snug max-w-4xl mb-4 sm:mb-6 text-glow px-2 text-[#000F9F]">
+                خلق <span class="gradient-text drop-shadow-[0_0_20px_rgba(0,15,159,0.2)]">شاهکارهای بصری</span> با انجمن ادیتوران
+            </h1>
+
+            <!-- 4. Sub-heading (زیرعنوان) -->
+            <p class="text-xs sm:text-lg lg:text-xl text-[#0000A0] max-w-2xl font-light leading-relaxed mb-8 sm:mb-10 px-4">
+                اجتماع حرفه‌ای تدوین‌گران، ادیتورهای ویدیو و طراحان گرافیک؛ آموزش، نمونه‌کارها و مسیر رشد در یک فضای مدرن.
+            </p>
+
+            <!-- 5. CTA Buttons (دکمه‌های فراخوان) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-6 w-full max-w-xs sm:max-w-md mb-8 sm:mb-10 px-4">
+                <!-- Primary CTA -->
+                <button class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#000F9F] text-white font-bold text-sm sm:text-base shadow-neon-glow-btn active:scale-95 transition-all duration-200 flex items-center justify-center space-x-2 space-x-reverse">
+                    <span>مشاهده دوره‌ها</span>
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+                <!-- Secondary CTA -->
+                <button class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl glass-panel text-[#000F9F] font-semibold text-sm sm:text-base border border-[#000F9F]/50 active:scale-95 transition-all duration-200">
+                    دیدن نمونه‌کارها
+                </button>
+            </div>
+
+            <!-- 6. Search Bar (نوار جستجو) -->
+            <div class="w-full max-w-2xl mb-10 sm:mb-16 px-2">
+                <div class="relative flex items-center glass-panel rounded-xl sm:rounded-2xl border border-[#000F9F]/30 p-1.5 sm:p-2">
+                    <div class="pr-3 text-[#000F9F] shrink-0">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-[0_0_8px_rgba(0,15,159,0.3)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <input type="text" 
+                           placeholder="جستجو در اساتید، دوره‌ها و پروژه‌ها..." 
+                           class="w-full bg-transparent text-[#000F9F] placeholder-[#0000A0]/60 text-xs sm:text-base px-2 py-2 focus:outline-none"
+                           readonly>
+                </div>
+            </div>
+
+            <!-- 7. Creative Hub Preview Card (کارت نمایش مانیتورینگ/داشبورد) -->
+            <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden animate-float">
+                
+                <!-- Background Accent Glow inside Card -->
+                <div class="absolute -top-20 -left-20 w-36 h-36 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <!-- Card Header Top Bar -->
+                <div class="flex items-center justify-between pb-4 sm:pb-6 mb-6 sm:mb-8 border-b border-[#000F9F]/15">
+                    <!-- Right: Creative Hub Badge -->
+                    <div class="flex items-center space-x-2 space-x-reverse">
+                        <span class="text-[10px] sm:text-xs font-bold tracking-wider text-[#000F9F] bg-[#000F9F]/10 border border-[#000F9F]/30 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg shadow-inner">
+                            CREATIVE HUB
+                        </span>
+                    </div>
+                    <!-- Left: Decorative Dots -->
+                    <div class="flex items-center space-x-1.5 space-x-reverse">
+                        <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#000F9F]/30 shadow-[0_0_6px_rgba(0,15,159,0.2)]"></span>
+                        <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#0000A0]/50 shadow-[0_0_6px_rgba(0,0,160,0.2)]"></span>
+                        <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#030BB8] shadow-[0_0_6px_rgba(3,11,184,0.3)]"></span>
+                    </div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div class="flex flex-col items-center justify-center mb-6 sm:mb-8">
+                    <!-- Central Neon Logo Box -->
+                    <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-b from-white to-blue-50 border border-[#000F9F]/40 flex items-center justify-center shadow-neon-glow mb-6 sm:mb-8 relative">
+                        <div class="absolute inset-0 bg-[#000F9F]/10 rounded-2xl blur-md"></div>
+                        <svg class="w-10 h-10 sm:w-14 sm:h-14 text-[#000F9F] drop-shadow-[0_0_10px_rgba(0,15,159,0.3)] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                        </svg>
+                    </div>
+
+                    <!-- Animated Progress Bars -->
+                    <div class="w-full max-w-lg space-y-3 sm:space-y-4">
+                        <!-- Bar 1 -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
+                                <span>رندرینگ جلوه‌های بصری</span>
+                                <span class="text-[#000F9F] font-bold">100%</span>
+                            </div>
+                            <div class="w-full h-1.5 sm:h-2 bg-blue-50 rounded-full overflow-hidden border border-[#000F9F]/20">
+                                <div class="h-full bg-gradient-to-l from-[#000F9F] to-[#030BB8] rounded-full animate-progress-1 shadow-[0_0_8px_rgba(0,15,159,0.4)]"></div>
+                            </div>
+                        </div>
+                        <!-- Bar 2 -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
+                                <span>پیشرفت دوره جامع تدوین</span>
+                                <span class="text-[#000F9F] font-bold">100%</span>
+                            </div>
+                            <div class="w-full h-1.5 sm:h-2 bg-blue-50 rounded-full overflow-hidden border border-[#000F9F]/20">
+                                <div class="h-full bg-gradient-to-l from-[#000F9F] to-[#0000A0] rounded-full animate-progress-2 shadow-[0_0_8px_rgba(0,15,159,0.4)]"></div>
+                            </div>
+                        </div>
+                        <!-- Bar 3 -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
+                                <span>تکمیل پروژه‌های فعال</span>
+                                <span class="text-[#000F9F] font-bold">100%</span>
+                            </div>
+                            <div class="w-full h-1.5 sm:h-2 bg-blue-50 rounded-full overflow-hidden border border-[#000F9F]/20">
+                                <div class="h-full bg-gradient-to-l from-[#0000A0] to-[#030BB8] rounded-full animate-progress-3 shadow-[0_0_8px_rgba(3,11,184,0.4)]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Stats Grid (بخش آمار) -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t border-[#000F9F]/15">
+                    <!-- Stat 1 -->
+                    <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
+                        <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
+                            16
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-[#0000A0] font-medium">استاد</span>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
+                        <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
+                            +135
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-[#0000A0] font-medium">پروژه</span>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
+                        <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
+                            1
+                        </span>
+                        <span class="text-[10px] sm:text-xs text-[#0000A0] font-medium">مسیر جامع</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+  </html>
+  
