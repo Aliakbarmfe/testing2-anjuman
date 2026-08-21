@@ -60,16 +60,31 @@
     </script>
 
     <style>
+        /* ۱. تعریف فونت فارسی - مربع بلک */
         @font-face {
-            font-family: 'CustomHeaderFont';
+            font-family: 'MorabbaBlack';
+            src: url('fonts/مربع بلک [@Font_SaRaSaRi].woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ۲. تعریف فونت انگلیسی - پارسا */
+        @font-face {
+            font-family: 'ParsaFont';
             src: url('fonts/Parsa [@Font_SaRaSaRi](1).woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
         }
 
-        .custom-header-font {
-            font-family: 'CustomHeaderFont', 'Vazirmatn', sans-serif !important;
+        /* ۳. کلاس‌های اختصاصی فونت‌ها */
+        .font-morabba {
+            font-family: 'MorabbaBlack', 'Vazirmatn', sans-serif !important;
+        }
+
+        .font-parsa {
+            font-family: 'ParsaFont', sans-serif !important;
         }
 
         * {
@@ -84,8 +99,6 @@
             overflow-x: hidden;
         }
 
-        
-        
         .ambient-bg {
             position: absolute;
             border-radius: 50%;
@@ -110,7 +123,6 @@
             background: radial-gradient(circle, rgba(3, 11, 184, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
         }
 
-        
         .glass-panel {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
@@ -125,7 +137,6 @@
             border: 1px solid rgba(0, 15, 159, 0.2);
         }
 
-        
         .text-glow {
             text-shadow: 0 0 12px rgba(0, 15, 159, 0.15);
         }
@@ -136,7 +147,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -151,14 +161,11 @@
 </head>
 <body class="min-h-screen relative selection:bg-[#000F9F] selection:text-white">
 
-    
     <div class="ambient-bg ambient-1"></div>
     <div class="ambient-bg ambient-2"></div>
 
-    
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
 
-        
         <header class="py-4 sm:py-6 mb-6 sm:mb-8 flex items-center justify-between border-b border-[#000F9F]/15">
             
             <div class="flex items-center space-x-2.5 space-x-reverse cursor-pointer group">
@@ -166,14 +173,13 @@
                     <img src="IMG_20260821_170831_475.png" alt="لوگوی انجمن ادیتوران" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-lg sm:text-xl font-black tracking-wide text-[#000F9F]">
+                    <span class="font-morabba text-lg sm:text-xl font-black tracking-wide text-[#000F9F]">
                         انجمن <span class="text-[#030BB8]">ادیتوران بیباک</span>
                     </span>
-                    <span class="custom-header-font text-lg sm:text-xl text-[#0000A0] font-bold tracking-widest">Bibak Editors Guild</span>
+                    <span class="font-parsa text-lg sm:text-xl text-[#0000A0] font-bold tracking-widest">Bibak Editors Guild</span>
                 </div>
             </div>
 
-            
             <button aria-label="منو" class="glass-panel p-2 sm:p-2.5 rounded-xl text-[#000F9F] border border-[#000F9F]/30 active:scale-95 transition-transform duration-200">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -181,10 +187,8 @@
             </button>
         </header>
 
-        
         <main class="flex flex-col items-center text-center mt-2 sm:mt-6">
 
-            
             <div class="inline-flex items-center space-x-2 space-x-reverse px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full glass-panel border border-[#000F9F]/40 shadow-neon-glow animate-pulse-glow mb-6 sm:mb-8">
                 <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#000F9F] animate-ping shrink-0"></span>
                 <span class="text-[11px] sm:text-sm font-medium text-[#0000A0]">
@@ -192,19 +196,15 @@
                 </span>
             </div>
 
-            
             <h1 class="text-2xl sm:text-5xl lg:text-6xl font-black leading-snug sm:leading-snug max-w-4xl mb-4 sm:mb-6 text-glow px-2 text-[#000F9F]">
                 خلق <span class="gradient-text drop-shadow-[0_0_20px_rgba(0,15,159,0.2)]">شاهکارهای بصری</span> با انجمن ادیتوران
             </h1>
 
-            
             <p class="text-xs sm:text-lg lg:text-xl text-[#0000A0] max-w-2xl font-light leading-relaxed mb-8 sm:mb-10 px-4">
                 اجتماع حرفه‌ای تدوین‌گران، ادیتورهای ویدیو و طراحان گرافیک؛ آموزش، نمونه‌کارها و مسیر رشد در یک فضای مدرن.
             </p>
 
-            
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-6 w-full max-w-xs sm:max-w-md mb-8 sm:mb-10 px-4">
-                
                 <button class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#000F9F] text-white font-bold text-sm sm:text-base shadow-neon-glow-btn active:scale-95 transition-all duration-200 flex items-center justify-center space-x-2 space-x-reverse">
                     <span>مشاهده دوره‌ها</span>
                     <svg class="w-4 h-4 sm:w-5 sm:h-5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -217,7 +217,6 @@
                 </button>
             </div>
 
-            
             <div class="w-full max-w-2xl mb-10 sm:mb-16 px-2">
                 <div class="relative flex items-center glass-panel rounded-xl sm:rounded-2xl border border-[#000F9F]/30 p-1.5 sm:p-2">
                     <div class="pr-3 text-[#000F9F] shrink-0">
@@ -234,18 +233,14 @@
 
             <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden animate-float">
                 
-                <!-- Background Accent Glow inside Card -->
                 <div class="absolute -top-20 -left-20 w-36 h-36 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
                 
-                <!-- Card Header Top Bar -->
                 <div class="flex items-center justify-between pb-4 sm:pb-6 mb-6 sm:mb-8 border-b border-[#000F9F]/15">
-                    <!-- Right: Creative Hub Badge -->
                     <div class="flex items-center space-x-2 space-x-reverse">
                         <span class="text-[10px] sm:text-xs font-bold tracking-wider text-[#000F9F] bg-[#000F9F]/10 border border-[#000F9F]/30 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg shadow-inner">
                             CREATIVE HUB
                         </span>
                     </div>
-                    <!-- Left: Decorative Dots -->
                     <div class="flex items-center space-x-1.5 space-x-reverse">
                         <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#000F9F]/30 shadow-[0_0_6px_rgba(0,15,159,0.2)]"></span>
                         <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#0000A0]/50 shadow-[0_0_6px_rgba(0,0,160,0.2)]"></span>
@@ -253,9 +248,7 @@
                     </div>
                 </div>
 
-                <!-- Card Body Content -->
                 <div class="flex flex-col items-center justify-center mb-6 sm:mb-8">
-                    <!-- Central Neon Logo Box -->
                     <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-b from-white to-blue-50 border border-[#000F9F]/40 flex items-center justify-center shadow-neon-glow mb-6 sm:mb-8 relative">
                         <div class="absolute inset-0 bg-[#000F9F]/10 rounded-2xl blur-md"></div>
                         <svg class="w-10 h-10 sm:w-14 sm:h-14 text-[#000F9F] drop-shadow-[0_0_10px_rgba(0,15,159,0.3)] relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -263,9 +256,7 @@
                         </svg>
                     </div>
 
-                    <!-- Animated Progress Bars -->
                     <div class="w-full max-w-lg space-y-3 sm:space-y-4">
-                        <!-- Bar 1 -->
                         <div class="space-y-1">
                             <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
                                 <span>رندرینگ جلوه‌های بصری</span>
@@ -275,7 +266,6 @@
                                 <div class="h-full bg-gradient-to-l from-[#000F9F] to-[#030BB8] rounded-full animate-progress-1 shadow-[0_0_8px_rgba(0,15,159,0.4)]"></div>
                             </div>
                         </div>
-                        <!-- Bar 2 -->
                         <div class="space-y-1">
                             <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
                                 <span>پیشرفت دوره جامع تدوین</span>
@@ -285,7 +275,6 @@
                                 <div class="h-full bg-gradient-to-l from-[#000F9F] to-[#0000A0] rounded-full animate-progress-2 shadow-[0_0_8px_rgba(0,15,159,0.4)]"></div>
                             </div>
                         </div>
-                        <!-- Bar 3 -->
                         <div class="space-y-1">
                             <div class="flex justify-between text-[11px] sm:text-xs text-[#0000A0] font-medium">
                                 <span>تکمیل پروژه‌های فعال</span>
@@ -298,9 +287,7 @@
                     </div>
                 </div>
 
-                
                 <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t border-[#000F9F]/15">
-                    <!-- Stat 1 -->
                     <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
                         <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
                             16
@@ -308,7 +295,6 @@
                         <span class="text-[10px] sm:text-xs text-[#0000A0] font-medium">استاد</span>
                     </div>
 
-                    <!-- Stat 2 -->
                     <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
                         <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
                             +135
@@ -316,7 +302,6 @@
                         <span class="text-[10px] sm:text-xs text-[#0000A0] font-medium">پروژه</span>
                     </div>
 
-                    <!-- Stat 3 -->
                     <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-50/50 border border-[#000F9F]/20 flex flex-col items-center justify-center">
                         <span class="text-xl sm:text-3xl font-black text-[#000F9F] drop-shadow-[0_0_8px_rgba(0,15,159,0.2)] mb-0.5">
                             1
@@ -331,5 +316,4 @@
     </div>
 
 </body>
-                            </html>
-                            
+</html>
