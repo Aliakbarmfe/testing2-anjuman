@@ -214,48 +214,48 @@
                 </div>
             </div>
 
-            <!-- کادر اسلایدر اصلاح شده -->
-            <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden">
-                <div class="absolute -bottom-20 -right-20 w-36 h-36 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
+            <!-- کادر اسلایدر بزرگ‌شده -->
+            <div class="w-full max-w-4xl glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden">
+                <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
 
-                <div class="relative flex items-center justify-between gap-2 sm:gap-4 py-2 min-h-[180px] sm:min-h-[220px]">
+                <div class="relative flex items-center justify-between gap-3 sm:gap-6 py-4 min-h-[240px] sm:min-h-[300px]">
 
-                    <!-- اسلاید راست (کوچک‌تر، کاملا واضح و هم‌اندازه با اسلاید چپ) -->
+                    <!-- اسلاید راست (بزرگ‌تر شده) -->
                     <div class="slider-item flex-1 flex flex-col items-center select-none">
-                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl border border-[#000F9F]/30 shadow-sm mb-2 bg-[#000F9F]/5 flex items-center justify-center">
-                            <span class="text-xs sm:text-sm font-bold text-[#000F9F]">عکس</span>
+                        <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl border border-[#000F9F]/30 shadow-sm mb-3 bg-[#000F9F]/5 flex items-center justify-center">
+                            <span class="text-sm sm:text-base font-bold text-[#000F9F]">عکس</span>
                         </div>
-                        <span id="name-right" class="text-xs sm:text-sm font-bold text-[#000F9F]"></span>
+                        <span id="name-right" class="text-sm sm:text-base font-bold text-[#000F9F]"></span>
                     </div>
 
                     <!-- فلش سمت راست -->
-                    <button id="prev-btn" aria-label="قبلی" class="glass-panel p-2 sm:p-2.5 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-95 z-20">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="prev-btn" aria-label="قبلی" class="glass-panel p-2.5 sm:p-3 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-95 z-20">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
                         </svg>
                     </button>
 
-                    <!-- اسلاید وسط (دقیقاً در مرکز، بزرگ‌تر از چپ و راست) -->
+                    <!-- اسلاید وسط (خیلی بزرگ‌تر شده) -->
                     <div class="slider-item flex-1 flex flex-col items-center justify-center z-10 select-none">
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-2 border-[#000F9F] shadow-neon-glow mb-3 bg-[#000F9F]/10 flex items-center justify-center">
-                            <span class="text-base sm:text-lg font-black text-[#000F9F]">عکس</span>
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl border-2 border-[#000F9F] shadow-neon-glow mb-4 bg-[#000F9F]/10 flex items-center justify-center">
+                            <span class="text-xl sm:text-2xl font-black text-[#000F9F]">عکس</span>
                         </div>
-                        <span id="name-center" class="text-sm sm:text-base font-black text-[#000F9F] text-glow"></span>
+                        <span id="name-center" class="text-base sm:text-xl font-black text-[#000F9F] text-glow"></span>
                     </div>
 
                     <!-- فلش سمت چپ -->
-                    <button id="next-btn" aria-label="بعدی" class="glass-panel p-2 sm:p-2.5 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-95 z-20">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="next-btn" aria-label="بعدی" class="glass-panel p-2.5 sm:p-3 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-95 z-20">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
 
-                    <!-- اسلاید چپ (کوچک‌تر، کاملا واضح و هم‌اندازه با اسلاید راست) -->
+                    <!-- اسلاید چپ (بزرگ‌تر شده) -->
                     <div class="slider-item flex-1 flex flex-col items-center select-none">
-                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl border border-[#000F9F]/30 shadow-sm mb-2 bg-[#000F9F]/5 flex items-center justify-center">
-                            <span class="text-xs sm:text-sm font-bold text-[#000F9F]">عکس</span>
+                        <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl border border-[#000F9F]/30 shadow-sm mb-3 bg-[#000F9F]/5 flex items-center justify-center">
+                            <span class="text-sm sm:text-base font-bold text-[#000F9F]">عکس</span>
                         </div>
-                        <span id="name-left" class="text-xs sm:text-sm font-bold text-[#000F9F]"></span>
+                        <span id="name-left" class="text-sm sm:text-base font-bold text-[#000F9F]"></span>
                     </div>
 
                 </div>
