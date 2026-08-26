@@ -157,6 +157,11 @@
             background: #000F9F;
             border-radius: 3px;
         }
+
+        /* انیمیشن ترانزیشن هموار اسلایدر */
+        .slider-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 <body class="min-h-screen relative selection:bg-[#000F9F] selection:text-white">
@@ -225,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden animate-float">
+            <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden animate-float mb-12">
                 
                 <div class="absolute -top-20 -left-20 w-36 h-36 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
                 
@@ -304,33 +309,127 @@
 
             </div>
 
-            <!-- کادر جدید اضافه شده در انتهای سایت -->
-            <div class="w-full max-w-3xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-card-glow border border-[#000F9F]/30 mt-8 text-right flex items-start gap-4 sm:gap-6">
-                <!-- جایگاه عکس مربع سمت راست -->
-                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl border border-[#000F9F]/30 bg-blue-50/50 flex-shrink-0 overflow-hidden flex items-center justify-center shadow-inner">
-                    <!-- اگر عکسی خواستید بگذارید، کافیست src زیر را تغییر دهید -->
-                    <!-- <img src="آدرس-عکس.jpg" alt="آقای فیزون" class="w-full h-full object-cover"> -->
-                    <span class="text-[10px] sm:text-xs text-[#0000A0]/60 font-medium">محل عکس</span>
-                </div>
+            <!-- بخش جدید: اسلایدر 3 تایی در انتهای سایت -->
+            <div class="w-full max-w-4xl glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-card-glow border border-[#000F9F]/30 relative overflow-hidden">
+                <div class="absolute -bottom-20 -right-20 w-36 h-36 bg-[#000F9F]/10 rounded-full blur-2xl pointer-events-none"></div>
 
-                <!-- بخش متون در سمت چپ عکس -->
-                <div class="flex-grow flex flex-col justify-center">
-                    <!-- نام بزرگ -->
-                    <h3 class="text-xl sm:text-2xl font-bold text-[#000F9F] mb-1.5 sm:mb-2">
-                        آقای فیزون
-                    </h3>
+                <div class="relative flex items-center justify-between gap-2 sm:gap-4 py-4 min-h-[220px]">
 
-                    <!-- توضیحات ریز ۳ سطری -->
-                    <p class="text-xs sm:text-sm text-[#0000A0]/80 leading-relaxed font-normal">
-                        فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون.<br>
-                        فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون.<br>
-                        فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون فیزون.
-                    </p>
+                    <!-- اسلاید راست (در چیدمان RTL، سمت راست دیده می‌شود) -->
+                    <div class="slider-item w-1/4 flex flex-col items-center opacity-40 blur-[2px] scale-90 transition-all duration-500 select-none">
+                        <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-[#000F9F]/30 shadow-md mb-2">
+                            <img id="img-right" src="" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span id="name-right" class="text-xs sm:text-sm font-bold text-[#000F9F]"></span>
+                    </div>
+
+                    <!-- فلش سمت راست (در RTL یعنی فلش قبلی) -->
+                    <button id="prev-btn" aria-label="عکس قبلی" class="glass-panel p-2 sm:p-3 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-90 z-20">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- اسلاید وسط (کاملاً شفاف و بزرگتر) -->
+                    <div class="slider-item w-2/4 flex flex-col items-center z-10 transition-all duration-500 select-none">
+                        <div class="w-24 h-24 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#000F9F] shadow-neon-glow mb-3">
+                            <img id="img-center" src="" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span id="name-center" class="text-sm sm:text-lg font-black text-[#000F9F] text-glow"></span>
+                    </div>
+
+                    <!-- فلش سمت چپ (در RTL یعنی فلش بعدی) -->
+                    <button id="next-btn" aria-label="عکس بعدی" class="glass-panel p-2 sm:p-3 rounded-full text-[#000F9F] border border-[#000F9F]/30 hover:bg-[#000F9F] hover:text-white transition-all duration-300 shadow-neon-btn shrink-0 active:scale-90 z-20">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- اسلاید چپ (در چیدمان RTL، سمت چپ دیده می‌شود) -->
+                    <div class="slider-item w-1/4 flex flex-col items-center opacity-40 blur-[2px] scale-90 transition-all duration-500 select-none">
+                        <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-[#000F9F]/30 shadow-md mb-2">
+                            <img id="img-left" src="" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span id="name-left" class="text-xs sm:text-sm font-bold text-[#000F9F]"></span>
+                    </div>
+
                 </div>
             </div>
 
         </main>
     </div>
 
+    <!-- اسکریپت کنترل کاروسل -->
+    <script>
+        // لیست عکس‌ها و اسامی (می‌توانید آدرس عکس‌ها و اسامی را ویرایش کنید)
+        const items = [
+            { img: "photos/typo simple1.jpg", name: "استاد علی رضایی" },
+            { img: "IMG_20260821_170831_475.png", name: "پروژه جلوه‌های بصری" },
+            { img: "photos/typo simple1.jpg", name: "دوره جامع تدوین" },
+            { img: "IMG_20260821_170831_475.png", name: "کارگاه گرافیک" },
+            { img: "photos/typo simple1.jpg", name: "انجمن ادیتوران" }
+        ];
+
+        let currentIndex = 0;
+        let autoSlideTimer = null;
+
+        function updateCarousel() {
+            const total = items.length;
+            
+            // محاسبه اندیس عکس‌های چپ، وسط و راست
+            const centerIdx = currentIndex;
+            const rightIdx = (currentIndex - 1 + total) % total;
+            const leftIdx = (currentIndex + 1) % total;
+
+            // به‌روزرسانی عکس و نام وسط
+            document.getElementById('img-center').src = items[centerIdx].img;
+            document.getElementById('img-center').alt = items[centerIdx].name;
+            document.getElementById('name-center').textContent = items[centerIdx].name;
+
+            // به‌روزرسانی عکس و نام راست
+            document.getElementById('img-right').src = items[rightIdx].img;
+            document.getElementById('img-right').alt = items[rightIdx].name;
+            document.getElementById('name-right').textContent = items[rightIdx].name;
+
+            // به‌روزرسانی عکس و نام چپ
+            document.getElementById('img-left').src = items[leftIdx].img;
+            document.getElementById('img-left').alt = items[leftIdx].name;
+            document.getElementById('name-left').textContent = items[leftIdx].name;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideTimer = setInterval(nextSlide, 7000); // ۷ ثانیه
+        }
+
+        function stopAutoSlide() {
+            if (autoSlideTimer) clearInterval(autoSlideTimer);
+        }
+
+        // رویداد کلیک فلش‌ها
+        document.getElementById('next-btn').addEventListener('click', () => {
+            nextSlide();
+            startAutoSlide(); // ریست کردن تایمر ۷ ثانیه‌ای
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            prevSlide();
+            startAutoSlide(); // ریست کردن تایمر ۷ ثانیه‌ای
+        });
+
+        // شروع اولیه اسلایدر
+        updateCarousel();
+        startAutoSlide();
+    </script>
 </body>
 </html>
